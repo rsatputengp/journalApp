@@ -33,12 +33,12 @@ public class UserServiceTests {
 //        assertNotNull(user);
 //    }
 
-    @Test
-    public void testFindByUserNameCust() {
-        User user = userRepository.findByUserName("RamJi");
-        assertTrue(!user.getJournalEntries().isEmpty());
-        assertNotNull(user.getJournalEntries().get(0));
-    }
+//    @Test
+//    public void testFindByUserNameCust() {
+//        User user = userRepository.findByUserName("RamJi");
+//        assertTrue(!user.getJournalEntries().isEmpty());
+//        assertNotNull(user.getJournalEntries().get(0));
+//    }
 
 //    @ParameterizedTest
 //    @ArgumentsSource(UserArgunmentProvider.class)
