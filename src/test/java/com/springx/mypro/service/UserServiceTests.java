@@ -13,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class UserServiceTests {
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private UserService userService;
+//    @Autowired
+//    private UserRepository userRepository;
+//
+//    @Autowired
+//    private UserService userService;
 
 //    @ParameterizedTest
 //    @ValueSource(strings = {"RamJi", "Ram", "RamJi123"})
