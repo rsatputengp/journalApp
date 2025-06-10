@@ -4,7 +4,9 @@ import com.springx.mypro.entity.ConfigJournalAppEntity;
 import com.springx.mypro.entity.User;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface ConfigJournalAppRepository extends MongoRepository<ConfigJournalAppEntity, ObjectId> {
 
 }
