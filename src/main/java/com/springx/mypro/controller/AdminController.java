@@ -1,5 +1,6 @@
 package com.springx.mypro.controller;
 
+import com.springx.mypro.cache.AppCache;
 import com.springx.mypro.entity.User;
 import com.springx.mypro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,23 +17,31 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AppCache appCache;
+
     @GetMapping("/all-users")
-    public ResponseEntity<?> getAllUsers(){
+    public ResponseEntity<?> getAllUsers() {
         List<User> allUsers = userService.getAllUsers();
-        if(allUsers != null && !allUsers.isEmpty()){
+        if (allUsers != null && !allUsers.isEmpty()) {
             return new ResponseEntity<>(allUsers, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    
+
     @PostMapping("/create-admin-user")
-    public ResponseEntity<?> createAdminUser(@RequestBody User user){
+    public ResponseEntity<?> createAdminUser(@RequestBody User user) {
         try {
             userService.saveAdmin(user);
             return new ResponseEntity<>(user, HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>( "Dublicate User Entry " ,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Dublicate User Entry ", HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("clear-app-cache")
+    public void clearAppCache() {
+        appCache.init();
     }
 
 }

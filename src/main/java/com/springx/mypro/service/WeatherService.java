@@ -1,6 +1,8 @@
 package com.springx.mypro.service;
 
 import com.springx.mypro.api.response.WeatherResponse;
+import com.springx.mypro.cache.AppCache;
+import com.springx.mypro.constants.Placeholders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
@@ -12,16 +14,18 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class WeatherService {
 
-    @Value("${weather.api.key}")
-    private String apikey;
+    @Autowired
+    private AppCache appCache;
 
-    private static final String url = "https://api.weatherstack.com/current?access_key=API_KEY&query=CITY";
+//    @Value("${weather.api.key}")
+//    private String apikey;
+
 
     @Autowired
     private RestTemplate restTemplate;
 
     public WeatherResponse getWeather(String city) {
-        String finalUrl = url.replace("API_KEY", apikey).replace("CITY", city);
+        String finalUrl = appCache.appCache.get(AppCache.keys.WEATHER_API.toString()).replace(Placeholders.API_KEY, appCache.appCache.get(AppCache.keys.API_KEY.toString())).replace(Placeholders.CITY, city);
         ResponseEntity<WeatherResponse> response = restTemplate.exchange(finalUrl, HttpMethod.GET, null, WeatherResponse.class);
         WeatherResponse body = response.getBody();
         return body;
