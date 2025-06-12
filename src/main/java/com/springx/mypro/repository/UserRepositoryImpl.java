@@ -18,8 +18,6 @@ public class UserRepositoryImpl {
         Query query = new Query();
         Criteria criteria = new Criteria();
         query.addCriteria(criteria.andOperator(
-                Criteria.where("email").exists(true),
-                Criteria.where("email").ne(null).ne(""),
                 Criteria.where("email").regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,6}$"),
                 Criteria.where("sentimentAnalysis").is(true),
                 Criteria.where("roles").is("ADMIN")
