@@ -25,8 +25,8 @@ class EmailServiceTests {
                 "Testing Java Email sender",
                   "Yoo Shinchan {^_^}");
 
-//        // ✅ Proper verification
-//        verify(javaMailSender, times(1)).send(any(SimpleMailMessage.class));
+        // ✅ Proper verification
+        verify(javaMailSender, times(1)).send(any(SimpleMailMessage.class));
 
     }
 }
