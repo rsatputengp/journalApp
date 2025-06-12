@@ -11,8 +11,16 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class EmailService {
 
-    @Autowired
-    private JavaMailSender javaMailSender;
+//    @Autowired
+//    private JavaMailSender javaMailSender;
+
+    private final JavaMailSender emailSender;
+
+
+    public EmailService(JavaMailSender emailSender) {
+        this.emailSender = emailSender;
+    }
+
 
     public void sendEmail(String to, String subject, String body) {
         try {
@@ -20,7 +28,7 @@ public class EmailService {
             mail.setTo(to);
             mail.setSubject(subject);
             mail.setText(body);
-            javaMailSender.send(mail);
+            emailSender.send(mail);
         } catch (Exception e) {
             log.error("Error sending email: {}", e);
         }
