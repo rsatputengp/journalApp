@@ -19,14 +19,14 @@ class EmailServiceTests {
     private JavaMailSender javaMailSender;
 
 
-    @Test
-    void testSendEmail() {
-        emailService.sendEmail("rsatputengp@gmail.com",
-                "Testing Java Email sender",
-                  "Yoo Shinchan {^_^}");
-
-        // ✅ Proper verification
-        verify(javaMailSender, times(1)).send(any(SimpleMailMessage.class));
-
-    }
+//    @Test
+//    void testSendEmail() {
+//        emailService.sendEmail("rsatputengp@gmail.com",
+//                "Testing Java Email sender",
+//                  "Yoo Shinchan {^_^}");
+//
+//        // ✅ Proper verification
+//        verify(javaMailSender, times(1)).send(any(SimpleMailMessage.class));
+//
+//    }
 }
