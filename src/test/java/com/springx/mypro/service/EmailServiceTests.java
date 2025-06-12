@@ -13,7 +13,7 @@ class EmailServiceTests {
 
     @Test
     void testSendEmail() {
-        emailService.sendEmail("rsatputengp@gmail.com",
+        emailService.sendEmail("sahayogsaurbh@gmail.com",
                 "Testing Java Email sender",
                   "Yoo Shinchan {^_^}");
     }
