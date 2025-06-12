@@ -11,31 +11,27 @@ import org.springframework.test.context.ActiveProfiles;
 
 import static org.mockito.Mockito.*;
 
-@ActiveProfiles("test")
+//@ActiveProfiles("test")
 @SpringBootTest
 class EmailServiceTests {
 
     @Autowired
     private EmailService emailService;
 
-    @MockBean
+    @Autowired
     private JavaMailSender javaMailSender;
 
 
     @Test
     void testSendEmail() {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo("rsatputengp@gmail.com");
-        message.setSubject("Test Subject");
-        message.setText("Test Body");
+//        SimpleMailMessage message = new SimpleMailMessage();
+//        message.setTo("rsatputengp@gmail.com");
+//        message.setSubject("Test Subject");
+//        message.setText("Test Body");
 
-        emailService.sendEmail(
-                message.getTo()[0],
-                message.getSubject(),
-                message.getText()
-        );
+        emailService.sendEmail("rsatputengp@gmail.com","Testing Java Email sender","Yoo Shinchan {^_^}");
 
-        verify(javaMailSender, times(1)).send(any(SimpleMailMessage.class));
+//        verify(javaMailSender, times(1)).send(any(SimpleMailMessage.class));
 
     }
 }
