@@ -24,11 +24,17 @@ class EmailServiceTests {
 
     @Test
     void testSendEmail() {
-        emailService.sendEmail("rsatputengp@gmail.com",
-                "Testing Java Email sender",
-                  "Yoo Shinchan {^_^}");
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo("rsatputengp@gmail.com");
+        message.setSubject("Test Subject");
+        message.setText("Test Body");
 
-        // ✅ Proper verification
+        emailService.sendEmail(
+                message.getTo()[0],
+                message.getSubject(),
+                message.getText()
+        );
+
         verify(javaMailSender, times(1)).send(any(SimpleMailMessage.class));
 
     }
