@@ -24,8 +24,8 @@ public class AppCache {
 
     @PostConstruct
     public void init() {
-        appCache = new HashMap<>();
         try {
+            appCache = new HashMap<>();
             List<ConfigJournalAppEntity> all = configJournalAppRepository.findAll();
             for (ConfigJournalAppEntity entity : all) {
                 appCache.put(entity.getKey(), entity.getValue());
