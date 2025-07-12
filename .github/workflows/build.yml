@@ -38,5 +38,8 @@ jobs:
           REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
           REDIS_PORT: ${{ secrets.REDIS_PORT }}
           GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
-          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}       
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+          KAFKA_USERNAME: ${{ secrets.KAFKA_USERNAME }}
+          KAFKA_PASSWORD: ${{ secrets.KAFKA_PASSWORD }}
+          KAFKA_BOOTSTRAP_SERVER: ${{ secrets.KAFKA_BOOTSTRAP_SERVER }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=tect-titan_journalapp
