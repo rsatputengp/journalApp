@@ -23,7 +23,7 @@ public class PublicController {
     private UserService userService;
 
     @Autowired
-    private AuthenticationManager authenticationManager;
+    public AuthenticationManager authenticationManager;
 
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
