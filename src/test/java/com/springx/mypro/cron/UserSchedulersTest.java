@@ -1,6 +1,7 @@
-package com.springx.mypro.service;
+package com.springx.mypro.cron;
 
 import com.springx.mypro.scheduler.UserScheduler;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
