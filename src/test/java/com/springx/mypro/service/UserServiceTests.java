@@ -14,40 +14,40 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class UserServiceTests {
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private UserService userService;
-
-    @Disabled
-    @ParameterizedTest
-    @ValueSource(strings = {"RamJi", "Ram", "RamJi123"})
-    public void testFindByUserName_ValidUserName(String userName) {
-        User user = userRepository.findByUserName(userName);
-        assertNotNull(user);
-    }
-
-    @Disabled
-    @ParameterizedTest
-    @CsvSource({"RamJi", "Ram", "RamJi123"})
-    public void testFindByUserName_ValidUserName_CsvSource(String userName) {
-        User user = userRepository.findByUserName(userName);
-        assertNotNull(user);
-    }
-
-    @Disabled
-    @Test
-    public void testFindByUserNameCust() {
-        User user = userRepository.findByUserName("RamJi");
-        assertTrue(!user.getJournalEntries().isEmpty());
-        assertNotNull(user.getJournalEntries().get(0));
-    }
-
-    @Disabled
-    @ParameterizedTest
-    @ArgumentsSource(UserArgunmentProvider.class)
-    public void testSaveNewUser(User user) {
-        assertTrue(userService.saveUserTest(user));
-    }
+//    @Autowired
+//    private UserRepository userRepository;
+//
+//    @Autowired
+//    private UserService userService;
+//
+//    @Disabled
+//    @ParameterizedTest
+//    @ValueSource(strings = {"RamJi", "Ram", "RamJi123"})
+//    public void testFindByUserName_ValidUserName(String userName) {
+//        User user = userRepository.findByUserName(userName);
+//        assertNotNull(user);
+//    }
+//
+//    @Disabled
+//    @ParameterizedTest
+//    @CsvSource({"RamJi", "Ram", "RamJi123"})
+//    public void testFindByUserName_ValidUserName_CsvSource(String userName) {
+//        User user = userRepository.findByUserName(userName);
+//        assertNotNull(user);
+//    }
+//
+//    @Disabled
+//    @Test
+//    public void testFindByUserNameCust() {
+//        User user = userRepository.findByUserName("RamJi");
+//        assertTrue(!user.getJournalEntries().isEmpty());
+//        assertNotNull(user.getJournalEntries().get(0));
+//    }
+//
+//    @Disabled
+//    @ParameterizedTest
+//    @ArgumentsSource(UserArgunmentProvider.class)
+//    public void testSaveNewUser(User user) {
+//        assertTrue(userService.saveUserTest(user));
+//    }
 }
